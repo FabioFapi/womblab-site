@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
+	import { goto } from '$app/navigation';
 
 	export let service;
 	let mounted = false;
@@ -50,7 +51,7 @@
 	</a>
 	{#if mounted}
 		<div in:fade={{ duration: 800 }}>
-			<h1 class="text-center text-3xl font-bold md:text-4xl lg:text-5xl text-black">
+			<h1 class="text-center text-3xl font-bold text-black md:text-4xl lg:text-5xl">
 				<span class="relative z-10 inline-block">
 					{service.title}
 					<span
@@ -58,7 +59,7 @@
 					></span>
 				</span>
 			</h1>
-			
+
 			<div class="mt-4 mb-12 h-1 w-16 bg-green-500"></div>
 
 			<div class="mb-16 grid grid-cols-1 gap-12 md:grid-cols-2">
@@ -131,9 +132,10 @@
 			<div class="mt-16 flex justify-center md:justify-end">
 				<button
 					class="flex transform items-center space-x-2 rounded-lg bg-green-600 px-6 py-3 text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-blue-700 hover:shadow-lg"
+					on:click={() => goto('/contatti')}
 					in:fade={{ duration: 600, delay: 1600 }}
 				>
-					<span>Contact our team</span>
+					<span>Contattaci</span>
 					<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path
 							stroke-linecap="round"

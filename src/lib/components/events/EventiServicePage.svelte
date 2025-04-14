@@ -181,6 +181,7 @@
 	.card-body {
 		padding: 1.5rem;
 		line-height: 1.7;
+		list-style: none;
 	}
 
 	.cta-link {

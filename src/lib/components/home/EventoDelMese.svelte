@@ -23,7 +23,7 @@
 >
 	<div class="absolute top-0 left-0 w-full overflow-hidden">
 		<svg
-			class="relative block h-24 w-full"
+			class="relative block h-10 w-full"
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 1440 320"
 			preserveAspectRatio="none"
@@ -36,13 +36,13 @@
 		</svg>
 	</div>
 
-	<div class="relative z-10 mx-auto max-w-5xl px-4 py-24 text-center">
+	<div class="relative z-10 mx-auto max-w-5xl px-4 py-12 text-center">
 		<div
-			class="mb-10 inline-block transform rounded-2xl bg-white/95 p-5 shadow-xl transition-transform duration-300 hover:scale-105"
+			class="mb-6 inline-block transform rounded-2xl bg-white/95 p-3 shadow-xl transition-transform duration-300 hover:scale-105"
 		>
-			<div class="text-lg font-bold text-green-600">{getCurrentMonth()}</div>
+			<div class="text-base font-bold text-green-600">{getCurrentMonth()}</div>
 			<svg
-				class="mx-auto mt-2 h-14 w-14 text-green-600"
+				class="mx-auto mt-1 h-10 w-10 text-green-600"
 				fill="none"
 				viewBox="0 0 24 24"
 				stroke="currentColor"
@@ -56,8 +56,8 @@
 			</svg>
 		</div>
 
-		<h2 class="mb-5 text-4xl font-bold text-white drop-shadow-md">Ecco l'evento di questo mese</h2>
-		<p class="mx-auto mb-10 max-w-2xl text-lg text-white">
+		<h2 class="mb-3 text-3xl font-bold text-white drop-shadow-md">Ecco l'evento di questo mese</h2>
+		<p class="mx-auto mb-6 max-w-2xl text-base text-white">
 			Non perdere il nostro evento speciale di <span class="font-semibold">{getCurrentMonth()}</span
 			>. Abbiamo preparato contenuti esclusivi e opportunità di formazione che ti aiuteranno nel tuo
 			percorso professionale.
@@ -66,7 +66,7 @@
 		<a
 			href="https://womblab-landing-page.vercel.app/"
 			target="_blank"
-			class="inline-block transform rounded-full bg-white px-8 py-4 text-lg font-bold text-green-600 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+			class="inline-block transform rounded-full bg-white px-6 py-2 text-base font-bold text-green-600 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
 		>
 			Scopri l'evento
 		</a>
@@ -76,7 +76,7 @@
 <style>
 	section {
 		margin-bottom: 0 !important;
-		padding-bottom: 50px !important;
+		padding-bottom: 20px !important;
 	}
 
 	:global(body) {
