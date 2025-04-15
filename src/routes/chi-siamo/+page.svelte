@@ -138,8 +138,7 @@
 	<Timeline items={timeline} />
 </section>
 
-<section class="mx-auto max-w-6xl px-6 py-16">
-	<h2 class="mb-12 text-center text-3xl font-semibold">La nostra brochure</h2>
+<section class="mx-auto ">
 	<Flipbook />
 </section>
 
