@@ -183,6 +183,12 @@
 							class="absolute left-0 z-50 mt-1 w-56 rounded-lg border border-gray-100 bg-white py-3 shadow-lg dropdown-appear"
 							on:mouseleave={closeDropdown}
 						>
+						<a
+								href="https://womb.events/calendar?d=2023-12-01&t=l"
+								target="_blank"
+								class="block px-5 py-3 text-gray-800 transition-colors hover:bg-green-50"
+								>Calendario</a
+							>
 							<a
 								href="/eventi"
 								class="block px-5 py-3 text-gray-800 transition-colors hover:bg-green-50"
