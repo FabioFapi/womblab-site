@@ -1,10 +1,23 @@
 <script>
-	import { fade, fly } from 'svelte/transition';
+	import { goto } from '$app/navigation';
+	import { fade, fly, slide } from 'svelte/transition';
 	import { flip } from 'svelte/animate';
 	export let data;
 
 	let selectedType = 'tutti';
-	let key = 0;
+	let key = 0; // Per forzare il riavvio delle animazioni
+
+	const types = ['tutti', 'FAD', 'RES', 'campagna'];
+
+	function selectType(type) {
+		if (selectedType !== type) {
+			selectedType = type;
+			key++; // Incrementa la chiave per riavviare le animazioni
+		}
+	}
+
+	$: filtered =
+		selectedType === 'tutti' ? data.events : data.events.filter((e) => e.type === selectedType);
 
 	const formatDate = (dateString) => {
 		const parsed = new Date(dateString);
@@ -14,25 +27,13 @@
 		}
 		return dateString;
 	};
-
-	const events = data.events;
-	const types = ['tutti', 'FAD', 'RES', 'campagna'];
-
-	function selectType(type) {
-		if (selectedType !== type) {
-			selectedType = type;
-			key++;
-		}
-	}
-
-	$: filtered = selectedType === 'tutti' ? events : events.filter((e) => e.type === selectedType);
 </script>
 
 <section
 	class="relative overflow-hidden bg-gradient-to-br from-green-50 via-white to-blue-50 px-6 py-16"
 >
 	<div class="mx-auto max-w-6xl">
-		<h1
+		<h1 
 			in:fly={{ y: -20, duration: 600 }}
 			class="mb-12 text-center text-4xl font-extrabold tracking-tight text-zinc-900"
 		>
@@ -43,15 +44,15 @@
 				></span>
 			</span>
 		</h1>
-		<div
+
+		<div 
 			in:fly={{ y: 20, duration: 600, delay: 200 }}
 			class="mb-10 flex flex-wrap justify-center gap-2"
 		>
-			{#each types as type, i}
+			{#each types as type}
 				<button
 					on:click={() => selectType(type)}
-					style="animation-delay: {i * 100}ms"
-					class="filter-btn relative rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300
+					class="relative rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300
 						{selectedType === type
 						? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-md hover:shadow-lg'
 						: 'bg-white text-zinc-700 shadow hover:bg-zinc-50'}"
@@ -65,7 +66,7 @@
 			{/each}
 		</div>
 
-		{#if events.length === 0}
+		{#if filtered.length === 0}
 			<div
 				in:fade={{ duration: 400 }}
 				class="mx-auto max-w-3xl rounded-2xl border border-zinc-100 bg-white p-12 text-center text-zinc-700 shadow-xl"
@@ -89,7 +90,7 @@
 					</svg>
 				</div>
 				<p class="text-2xl font-bold text-zinc-800">Nessun evento trovato</p>
-				<p class="mt-3 text-zinc-500">Prova a tornare più tardi.</p>
+				<p class="mt-3 text-zinc-500">Prova a selezionare un'altra categoria o torna più tardi.</p>
 			</div>
 		{:else}
 			<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -97,7 +98,7 @@
 					<div
 						in:fly={{ y: 30, duration: 400, delay: i * 100 }}
 						animate:flip={{ duration: 400 }}
-						class="group event-card flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+						class="group flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
 					>
 						<a href={`/eventi/${event.id}`} class="block flex-1">
 							{#if event.image}
@@ -119,7 +120,15 @@
 									{/if}
 								</div>
 							{:else}
-								<div class="relative h-24 bg-gradient-to-r from-green-400 to-blue-400"></div>
+								<div class="relative h-24 bg-gradient-to-r from-green-400 to-blue-400">
+									{#if event.ecm && String(event.ecm).trim() !== '' && !isNaN(Number(event.ecm))}
+										<span
+											class="absolute top-4 right-4 rounded-full bg-white px-3 py-1 text-xs font-bold text-green-600 shadow-lg"
+										>
+											{event.ecm} ECM
+										</span>
+									{/if}
+								</div>
 							{/if}
 
 							<div class="flex flex-col p-6">
@@ -180,15 +189,19 @@
 										{event.type}
 									</div>
 								</div>
+
 								<h3 class="mb-3 line-clamp-2 text-xl font-bold text-zinc-800">{event.title}</h3>
-								<p class="mb-5 line-clamp-3 text-sm text-zinc-600">{event.description}</p>
+
+								<p class="mb-5 line-clamp-3 text-sm text-zinc-600">
+									{event.description}
+								</p>
 							</div>
 						</a>
 
 						<div class="p-6 pt-0">
 							<a
 								href={`/eventi/${event.id}`}
-								class="group/btn flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-green-500 to-green-600 px-4 py-3 text-sm font-semibold text-white shadow-md transition-all hover:from-green-600 hover:to-green-700"
+								class="group/btn flex w-full items-center justify-center rounded-3xl bg-gradient-to-r from-green-500 to-green-600 px-4 py-3 text-sm font-semibold text-white shadow-md transition-all hover:from-green-600 hover:to-green-700"
 							>
 								Scopri di più
 								<svg
@@ -258,21 +271,5 @@
 
 	.animate-ripple {
 		animation: ripple 1s ease-out;
-	}
-
-	.filter-btn {
-		opacity: 0;
-		animation: fadeIn 0.5s ease forwards;
-	}
-
-	.event-card {
-		opacity: 0;
-		animation: fadeIn 0.5s ease forwards;
-	}
-
-	@keyframes fadeIn {
-		to {
-			opacity: 1;
-		}
 	}
 </style>
