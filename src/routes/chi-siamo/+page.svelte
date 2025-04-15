@@ -137,12 +137,12 @@
 <section class="mx-auto max-w-4xl px-6 pb-16">
 	<Timeline items={timeline} />
 </section>
-<!-- Flipbook 
+
 <section class="mx-auto max-w-6xl px-6 py-16">
 	<h2 class="mb-12 text-center text-3xl font-semibold">La nostra brochure</h2>
 	<Flipbook />
 </section>
--->
+
 <!-- Team Section -->
 <section class="mx-auto max-w-6xl px-6 py-16">
 	<h2 class="mb-12 text-center text-3xl font-semibold">Il nostro team</h2>
