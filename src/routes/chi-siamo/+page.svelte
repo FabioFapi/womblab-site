@@ -126,7 +126,14 @@
 </script>
 
 <section class="mx-auto max-w-4xl px-6 py-16 text-center">
-	<h1 class="mb-4 text-4xl font-bold">Chi siamo</h1>
+	<h1 class="text-center text-3xl font-bold md:text-4xl lg:text-5xl">
+		<span class="relative z-10 inline-block">
+			Chi Siamo
+			<span
+				class="absolute bottom-2 left-0 -z-10 h-3 w-full -rotate-1 skew-x-3 transform bg-green-200"
+			></span>
+		</span>
+	</h1>
 	<p class="mx-auto max-w-2xl text-lg text-zinc-700">
 		Siamo un'agenzia specializzata nell’organizzazione di eventi e nella comunicazione scientifica.
 		Crediamo nella formazione accessibile, nella cura dei dettagli e nella forza delle relazioni.

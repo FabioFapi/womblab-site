@@ -86,7 +86,14 @@
 	<!-- Titolo -->
 	{#if visible}
 		<div in:fly={{ y: 30, duration: 800, delay: 200 }}>
-			<h1 class="mb-4 text-center text-4xl font-bold">I nostri servizi</h1>
+			<h1 class="text-center text-3xl font-bold md:text-4xl lg:text-5xl">
+				<span class="relative z-10 inline-block">
+					Servizi
+					<span
+						class="absolute bottom-2 left-0 -z-10 h-3 w-full -rotate-1 skew-x-3 transform bg-green-200"
+					></span>
+				</span>
+			</h1>
 			<div
 				class="mx-auto mb-16 h-1 w-24 rounded-full bg-gradient-to-r from-green-300 to-green-600"
 			></div>
