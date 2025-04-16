@@ -86,7 +86,7 @@
 	<!-- Titolo -->
 	{#if visible}
 		<div in:fly={{ y: 30, duration: 800, delay: 200 }}>
-			<h1 class="text-center text-3xl font-bold md:text-4xl lg:text-5xl">
+			<h1 class="text-center text-3xl text-black font-bold md:text-4xl lg:text-5xl">
 				<span class="relative z-10 inline-block">
 					Servizi
 					<span
@@ -94,9 +94,6 @@
 					></span>
 				</span>
 			</h1>
-			<div
-				class="mx-auto mb-16 h-1 w-24 rounded-full bg-gradient-to-r from-green-300 to-green-600"
-			></div>
 		</div>
 	{/if}
 
