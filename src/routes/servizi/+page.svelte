@@ -94,6 +94,9 @@
 					></span>
 				</span>
 			</h1>
+			<div
+				class="mx-auto mb-16 h-1 w-24 rounded-full "
+			></div>
 		</div>
 	{/if}
 
