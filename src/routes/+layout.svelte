@@ -12,7 +12,10 @@
 	/>
 	<meta name="author" content="https://github.com/FabioFapi" />
 	<link rel="canonical" href="https://www.womblab.com/" />
-	<link rel="apple-touch-icon" href="%sveltekit.assets%/WombLab_favicon-32-32.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/WombLab_favicon-32-32.png">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-title" content="Womblab Events">
 	<meta name="robots" content="max-image-preview:large" />
 	<meta name="format-detection" content="telephone=no">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
