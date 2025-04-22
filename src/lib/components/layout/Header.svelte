@@ -14,7 +14,11 @@
 
 	// Migliorato il gestore dei click esterni per funzionare meglio su mobile
 	function handleClickOutside(event) {
-		if (activeDropdown && !event.target.closest('.dropdown-container') && !event.target.closest('.dropdown-button')) {
+		if (
+			activeDropdown &&
+			!event.target.closest('.dropdown-container') &&
+			!event.target.closest('.dropdown-button')
+		) {
 			activeDropdown = null;
 		}
 	}
@@ -22,7 +26,7 @@
 	function closeDrawer() {
 		isMobileMenuOpen = false;
 	}
-	
+
 	// Funzione per gestire la navigazione su navbar bottom
 	function navigateTo(path) {
 		closeDrawer();
@@ -47,7 +51,7 @@
 				transform: translateY(0);
 			}
 		}
-		
+
 		@keyframes pulse-subtle {
 			0% {
 				box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.1);
@@ -101,18 +105,24 @@
 			opacity: 0.3;
 			transition: 0s;
 		}
-		
+
 		/* Animazione per la bottom navigation */
 		.bottom-tab.active {
 			animation: tab-active 0.3s ease;
 		}
-		
+
 		@keyframes tab-active {
-			0% { transform: scale(1); }
-			50% { transform: scale(1.1); }
-			100% { transform: scale(1); }
+			0% {
+				transform: scale(1);
+			}
+			50% {
+				transform: scale(1.1);
+			}
+			100% {
+				transform: scale(1);
+			}
 		}
-		
+
 		.dropdown-appear {
 			animation: dropdown-slide 0.3s ease forwards;
 		}
@@ -137,7 +147,7 @@
 			</a>
 
 			<!-- NAV DESKTOP -->
-			<ul class="hidden ml-auto items-center gap-8 font-medium text-gray-800 md:flex">
+			<ul class="ml-auto hidden items-center gap-8 font-medium text-gray-800 md:flex">
 				<li class="flex h-full items-center">
 					<a
 						href="/chi-siamo"
@@ -180,10 +190,10 @@
 
 					{#if activeDropdown === 'eventi'}
 						<div
-							class="absolute left-0 z-50 mt-1 w-56 rounded-lg border border-gray-100 bg-white py-3 shadow-lg dropdown-appear"
+							class="dropdown-appear absolute left-0 z-50 mt-1 w-56 rounded-lg border border-gray-100 bg-white py-3 shadow-lg"
 							on:mouseleave={closeDropdown}
 						>
-						<a
+							<a
 								href="https://womb.events/calendar?d=2023-12-01&t=l"
 								target="_blank"
 								class="block px-5 py-3 text-gray-800 transition-colors hover:bg-green-50"
@@ -219,14 +229,14 @@
 			</ul>
 
 			<!-- HAMBURGER BUTTON MOBILE -->
-			<div class="flex items-center ml-auto">
+			<div class="ml-auto flex items-center">
 				<button
 					on:click={() => (isMobileMenuOpen = !isMobileMenuOpen)}
 					aria-expanded={isMobileMenuOpen}
-					class="flex h-10 w-10 items-center justify-center rounded-md transition-all duration-300 hover:bg-green-50 md:hidden ripple-effect"
+					class="ripple-effect flex h-10 w-10 items-center justify-center rounded-md transition-all duration-300 hover:bg-green-50 md:hidden"
 					aria-label="Menu di navigazione"
 				>
-					<div class="relative h-5 w-6">
+					<span class="relative inline-block h-5 w-6">
 						<span
 							class="absolute top-0 h-0.5 w-6 bg-green-700 transition-all duration-300"
 							class:top-2={isMobileMenuOpen}
@@ -241,7 +251,7 @@
 							class:top-2={isMobileMenuOpen}
 							class:-rotate-45={isMobileMenuOpen}
 						></span>
-					</div>
+					</span>
 				</button>
 			</div>
 		</div>
@@ -266,9 +276,12 @@
 	<div class="flex h-full flex-col">
 		<!-- Header -->
 		<div class="flex items-center justify-between border-b border-gray-200 p-4">
-			<div class="flex items-center gap-2">
-			</div>
-			<button on:click={closeDrawer} class="p-2 rounded-full hover:bg-gray-100" aria-label="Chiudi menu">
+			<div class="flex items-center gap-2"></div>
+			<button
+				on:click={closeDrawer}
+				class="rounded-full p-2 hover:bg-gray-100"
+				aria-label="Chiudi menu"
+			>
 				<svg class="h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 					<path
 						stroke-linecap="round"
@@ -282,23 +295,33 @@
 
 		<!-- Links -->
 		<nav class="flex flex-col space-y-1 px-4 py-2">
-			<a 
-				href="/chi-siamo" 
-				on:click={closeDrawer} 
-				class="rounded px-4 py-3 hover:bg-green-50 ripple-effect flex items-center gap-3"
+			<a
+				href="/chi-siamo"
+				on:click={closeDrawer}
+				class="ripple-effect flex items-center gap-3 rounded px-4 py-3 hover:bg-green-50"
 			>
 				<svg class="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+					/>
 				</svg>
 				Chi Siamo
 			</a>
-			<a 
-				href="/servizi" 
-				on:click={closeDrawer} 
-				class="rounded px-4 py-3 hover:bg-green-50 ripple-effect flex items-center gap-3"
+			<a
+				href="/servizi"
+				on:click={closeDrawer}
+				class="ripple-effect flex items-center gap-3 rounded px-4 py-3 hover:bg-green-50"
 			>
 				<svg class="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+					/>
 				</svg>
 				Servizi
 			</a>
@@ -307,14 +330,27 @@
 			<div class="flex flex-col">
 				<button
 					on:click={() => toggleDropdown('mobile-eventi')}
-					class="dropdown-button flex items-center justify-between rounded px-4 py-3 hover:bg-green-50 ripple-effect"
+					class="dropdown-button ripple-effect flex items-center justify-between rounded px-4 py-3 hover:bg-green-50"
 				>
-					<div class="flex items-center gap-3">
-						<svg class="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+					<!-- Gruppo icona + testo -->
+					<span class="flex items-center gap-3">
+						<svg
+							class="h-5 w-5 text-green-600"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+							/>
 						</svg>
 						<span>Eventi</span>
-					</div>
+					</span>
+
+					<!-- Freccia -->
 					<svg
 						class="h-4 w-4 transition-transform duration-300"
 						class:rotate-180={activeDropdown === 'mobile-eventi'}
@@ -330,28 +366,28 @@
 				</button>
 
 				{#if activeDropdown === 'mobile-eventi'}
-					<div 
+					<div
 						class="mt-1 ml-4 flex flex-col space-y-1 border-l border-green-600 pl-4"
 						transition:slide={{ duration: 200 }}
 					>
-						<a 
-							href="/eventi" 
-							on:click={closeDrawer} 
-							class="rounded px-3 py-2 hover:bg-indigo-50 ripple-effect"
+						<a
+							href="/eventi"
+							on:click={closeDrawer}
+							class="ripple-effect rounded px-3 py-2 hover:bg-indigo-50"
 						>
 							Tutti gli eventi
 						</a>
 						<a
 							href="/eventi/grandi-eventi"
 							on:click={closeDrawer}
-							class="rounded px-3 py-2 hover:bg-indigo-50 ripple-effect"
+							class="ripple-effect rounded px-3 py-2 hover:bg-indigo-50"
 						>
 							Grandi Eventi
 						</a>
 						<a
 							href="/eventi/settore-medico"
 							on:click={closeDrawer}
-							class="rounded px-3 py-2 hover:bg-indigo-50 ripple-effect"
+							class="ripple-effect rounded px-3 py-2 hover:bg-indigo-50"
 						>
 							Settore Medico
 						</a>
@@ -359,13 +395,18 @@
 				{/if}
 			</div>
 
-			<a 
-				href="/contatti" 
-				on:click={closeDrawer} 
-				class="rounded px-4 py-3 hover:bg-green-50 ripple-effect flex items-center gap-3"
+			<a
+				href="/contatti"
+				on:click={closeDrawer}
+				class="ripple-effect flex items-center gap-3 rounded px-4 py-3 hover:bg-green-50"
 			>
 				<svg class="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+					/>
 				</svg>
 				Contatti
 			</a>

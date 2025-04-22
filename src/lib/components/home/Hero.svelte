@@ -48,12 +48,12 @@
 	<!-- Content -->
 	<div class="relative z-10 mx-auto max-w-4xl">
 		{#if visible}
-			<h1
+			<h2
 				transition:fly={{ y: 30, duration: 800 }}
 				class="mb-6 text-center text-4xl font-bold text-white md:text-5xl lg:text-6xl"
 			>
 				Eventi, Formazione e Comunicazione nel Settore Medico
-			</h1>
+			</h2>
 
 			<p
 				style="transform: translateY({$coords.y}px); opacity: {$coords.opacity}"

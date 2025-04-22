@@ -13,7 +13,7 @@
 	<meta name="author" content="https://github.com/FabioFapi" />
 	<link rel="canonical" href="https://www.womblab.com/" />
 	<meta name="robots" content="max-image-preview:large" />
-	<meta http-equiv="Content-Language" content="it-IT" />
+	<meta http-equiv="Content-Language" content="it" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta
 		name="keywords"
@@ -27,7 +27,7 @@
 	<meta property="og:url" content="https://www.womblab.com/" />
 	<meta property="og:type" content="website" />
 	<meta property="og:site_name" name="og:site_name" content="Womblab" />
-	<meta property="og:locale" name="og:locale" content="it-IT" />
+	<meta property="og:locale" name="og:locale" content="it" />
 	<meta property="og:image" content="https://www.womblab.com/ogImage.png" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="Womblab | events & communication" />
