@@ -13,7 +13,6 @@
 	<meta name="author" content="https://github.com/FabioFapi" />
 	<link rel="canonical" href="https://www.womblab.com/" />
 	<meta name="robots" content="max-image-preview:large" />
-	<meta http-equiv="Content-Language" content="it" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta
 		name="keywords"
