@@ -12,7 +12,9 @@
 	/>
 	<meta name="author" content="https://github.com/FabioFapi" />
 	<link rel="canonical" href="https://www.womblab.com/" />
+	<link rel="apple-touch-icon" href="%sveltekit.assets%/WombLab_favicon-32-32.png">
 	<meta name="robots" content="max-image-preview:large" />
+	<meta name="format-detection" content="telephone=no">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta
 		name="keywords"
@@ -30,7 +32,7 @@
 	<meta property="og:image" content="https://www.womblab.com/ogImage.png" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="Womblab | events & communication" />
-	<meta name="twitter:image" content="https://www.womblab.com/path-to-preview.jpg" />
+	<meta name="twitter:image" content="https://www.womblab.com/ogImage.png" />
 	<meta
 		name="twitter:description"
 		content="Organizziamo congressi nel settore medico-scientifico. Siamo Provider ECM. Creiamo eventi ad hoc. Ci occupiamo di formazione & comunicazione."
