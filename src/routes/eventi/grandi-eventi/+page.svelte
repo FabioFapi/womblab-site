@@ -93,7 +93,6 @@
 										{formatDate(event.date)}
 									</div>
 
-									<!-- Luogo -->
 									<div class="flex items-center rounded-full bg-zinc-100 px-3 py-1">
 										<svg
 											class="mr-1.5 h-3.5 w-3.5 text-green-500"
@@ -116,8 +115,7 @@
 										</svg>
 										{event.location}
 									</div>
-
-									<!-- Tipo -->
+									
 									<div class="flex items-center rounded-full bg-zinc-100 px-3 py-1">
 										<svg
 											class="mr-1.5 h-3.5 w-3.5 text-green-500"

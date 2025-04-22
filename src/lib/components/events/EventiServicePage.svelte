@@ -2,6 +2,28 @@
 	export let service = {};
 </script>
 
+<svelte:head>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Service",
+			"name": "Eventi & Formazione",
+			"description": "Womblab si occupa dell'organizzazione di eventi ECM, corsi FAD e RES, offrendo supporto tecnico e scientifico.",
+			"provider": {
+				"@type": "Organization",
+				"name": "Womblab",
+				"url": "https://womblab-events.vercel.app"
+			},
+			"areaServed": {
+				"@type": "Country",
+				"name": "Italia"
+			},
+			"serviceType": "Organizzazione eventi formativi"
+		}
+	</script>
+</svelte:head>
+
+
 <section class="relative mx-auto max-w-6xl px-6 py-20 text-zinc-800">
 	<a
 		href="/servizi"

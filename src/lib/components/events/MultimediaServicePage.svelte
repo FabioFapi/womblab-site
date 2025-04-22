@@ -15,6 +15,28 @@
 	}
 </script>
 
+<svelte:head>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Service",
+			"name": "Servizi Multimediali",
+			"description": "Live streaming, regia tecnica, videoconferenze, shooting fotografici e produzione video per eventi e formazione.",
+			"provider": {
+				"@type": "Organization",
+				"name": "Womblab",
+				"url": "https://womblab-events.vercel.app"
+			},
+			"areaServed": {
+				"@type": "Country",
+				"name": "Italia"
+			},
+			"serviceType": "Multimedia per eventi e comunicazione"
+		}
+	</script>
+</svelte:head>
+
+
 <section class="mx-auto max-w-5xl px-6 py-12 md:py-24 ">
 	<a
 		href="/servizi"

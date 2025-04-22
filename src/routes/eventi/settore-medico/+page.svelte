@@ -5,14 +5,14 @@
 	export let data;
 
 	let selectedType = 'tutti';
-	let key = 0; // Per forzare il riavvio delle animazioni
+	let key = 0;
 
 	const types = ['tutti', 'FAD', 'RES', 'campagna'];
 
 	function selectType(type) {
 		if (selectedType !== type) {
 			selectedType = type;
-			key++; // Incrementa la chiave per riavviare le animazioni
+			key++;
 		}
 	}
 
@@ -225,7 +225,6 @@
 		{/if}
 	</div>
 
-	<!-- Decorazione animata di sfondo -->
 	<div
 		class="animate-blob absolute -top-24 -left-16 -z-10 h-96 w-96 rounded-full bg-green-200 opacity-20 blur-3xl filter"
 	></div>

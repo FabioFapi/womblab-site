@@ -6,13 +6,10 @@
 	let isVisible = false;
 	let mapLoaded = false;
 
-	// Intersezione Observer per animazioni on-scroll
 	onMount(() => {
 		isVisible = true;
 
-		// Piccolo ritardo per assicurarsi che il DOM sia caricato
 		setTimeout(() => {
-			// Setup dell'observer per la mappa
 			const observer = new IntersectionObserver(
 				(entries) => {
 					entries.forEach((entry) => {
@@ -32,6 +29,38 @@
 		}, 100);
 	});
 </script>
+
+<svelte:head>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "ContactPage",
+			"name": "Contatti - Womblab",
+			"description": "Contatta Womblab per informazioni su eventi, formazione e comunicazione scientifica. Sede a Torino, Corso Vittorio Emanuele II, 103.",
+			"url": "https://womblab-events.vercel.app/contatti",
+			"mainEntity": {
+				"@type": "Organization",
+				"name": "Womblab",
+				"url": "https://womblab-events.vercel.app",
+				"email": "segreteria@womblab.com",
+				"telephone": "+39 011 4336307",
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "Corso Vittorio Emanuele II, 103",
+					"addressLocality": "Torino",
+					"postalCode": "10128",
+					"addressCountry": "IT"
+				},
+				"sameAs": [
+					"https://www.facebook.com/womblabto?locale=it_IT",
+					"https://www.instagram.com/womblab?igsh=MWw5MzJkZHV3eWlvZA==",
+					"https://www.linkedin.com/company/womblab-events-communication/"
+				]
+			}
+		}
+	</script>
+</svelte:head>
+
 
 <section class="contact-section mx-auto max-w-5xl bg-white px-6 py-16 text-zinc-800 md:py-24">
 	{#if isVisible}
@@ -185,7 +214,6 @@
 			</div>
 
 			<div in:fly={{ x: 20, duration: 800, delay: 400 }} class="form-container">
-				<!-- Componente del form modificato per tema chiaro -->
 				<div class="rounded-xl border border-green-100 bg-white p-8 shadow-md">
 					<h3 class="mb-6 text-xl font-semibold">Scrivici</h3>
 					<form class="space-y-4">
@@ -234,9 +262,7 @@
 			</div>
 		</div>
 
-		<!-- Modificato il container della mappa per assicurarsi che sia sempre presente nel DOM -->
 		<div id="map-container" class="mt-16">
-			<!-- Questo div sarà sempre presente nel DOM e l'observer può rilevarlo -->
 			{#if mapLoaded}
 				<div in:fade={{ duration: 1000 }} class="map-wrapper relative">
 					<div
@@ -269,7 +295,6 @@
 		overflow-x: hidden;
 	}
 
-	/* Animazione per gli elementi informativi */
 	.animate-item {
 		animation: fadeSlideUp 0.5s forwards;
 		opacity: 0;
@@ -296,7 +321,6 @@
 		}
 	}
 
-	/* Effetto hover sulla social icon */
 	.social-link {
 		transition: all 0.3s ease;
 	}
@@ -305,7 +329,6 @@
 		transform: translateY(-3px);
 	}
 
-	/* Effetto gradient sulla mappa */
 	.map-wrapper {
 		transition: all 0.5s ease;
 	}

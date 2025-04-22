@@ -1,4 +1,3 @@
-<!-- +page.svelte -->
 <script>
 	import TeamMember from '$lib/components/about/TeamMember.svelte';
 	import Timeline from '$lib/components/about/Timeline.svelte';
@@ -125,6 +124,39 @@
 	];
 </script>
 
+<svelte:head>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "AboutPage",
+			"name": "Chi Siamo - Womblab",
+			"description": "Conosci il team e la storia di Womblab, agenzia specializzata in eventi, formazione e comunicazione scientifica.",
+			"url": "https://womblab-events.vercel.app/chi-siamo",
+			"mainEntity": {
+				"@type": "Organization",
+				"name": "Womblab",
+				"url": "https://womblab-events.vercel.app",
+				"logo": "https://womblab-events.vercel.app/logo.png",
+				"foundingDate": "2012",
+				"sameAs": [
+					"https://www.linkedin.com/company/womblab-events-communication/"
+				],
+				"member": [
+					{
+						"@type": "Person",
+						"name": "Elena Sanguinetti",
+						"jobTitle": "General Manager",
+						"email": "elena@womblab.com",
+						"image": "https://womblab-events.vercel.app/img/team/elena.jpg",
+						"sameAs": "https://www.linkedin.com/in/elena-sanguinetti-b696931a1/"
+					}
+				]
+			}
+		}
+	</script>
+</svelte:head>
+
+
 <section class="mx-auto max-w-4xl px-6 py-16 text-center">
 	<h1 class="text-center text-3xl font-bold md:text-4xl lg:text-5xl">
 		<span class="relative z-10 inline-block">
@@ -140,7 +172,6 @@
 	</p>
 </section>
 
-<!-- Timeline -->
 <section class="mx-auto max-w-4xl px-6 pb-16">
 	<Timeline items={timeline} />
 </section>
@@ -149,11 +180,9 @@
 	<Flipbook />
 </section>
 
-<!-- Team Section -->
 <section class="mx-auto max-w-6xl px-6 py-16">
 	<h2 class="mb-12 text-center text-3xl font-semibold">Il nostro team</h2>
 
-	<!-- Boss on top -->
 	{#if team[0]}
 		<div class="mb-16 grid place-content-center">
 			<div class="max-w-[400px]">
@@ -168,7 +197,6 @@
 		</div>
 	{/if}
 
-	<!-- Grid for rest -->
 	<div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
 		{#each team.slice(1) as member}
 			<TeamMember {...member} />

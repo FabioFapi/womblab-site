@@ -77,16 +77,48 @@
 	}
 </script>
 
+<svelte:head>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "WebPage",
+			"name": "Servizi",
+			"url": "https://womblab-events.vercel.app/servizi",
+			"description": "I servizi offerti da Womblab includono eventi ECM, comunicazione e soluzioni multimediali.",
+			"mainEntity": {
+				"@type": "ItemList",
+				"itemListElement": [
+					{
+						"@type": "Service",
+						"name": "Eventi & Formazione",
+						"description": "Organizzazione eventi ECM, corsi FAD e RES.",
+						"url": "https://womblab-events.vercel.app/servizi/eventi-formazione"
+					},
+					{
+						"@type": "Service",
+						"name": "Comunicazione & Branding",
+						"description": "Grafica, progetti editoriali e strategie digitali.",
+						"url": "https://womblab-events.vercel.app/servizi/comunicazione-branding"
+					},
+					{
+						"@type": "Service",
+						"name": "Servizi Multimediali",
+						"description": "Live streaming, teleconferenze e regia tecnica.",
+						"url": "https://womblab-events.vercel.app/servizi/multimedia"
+					}
+				]
+			}
+		}
+	</script>
+</svelte:head>
+
 <section
 	class="relative mx-auto max-w-6xl overflow-hidden bg-white px-6 py-24 text-green-700"
 	bind:this={container}
 >
-	<!-- Rimozione degli elementi decorativi con sfondo colorato -->
-
-	<!-- Titolo -->
 	{#if visible}
 		<div in:fly={{ y: 30, duration: 800, delay: 200 }}>
-			<h1 class="text-center text-3xl text-black font-bold md:text-4xl lg:text-5xl">
+			<h1 class="text-center text-3xl font-bold text-black md:text-4xl lg:text-5xl">
 				<span class="relative z-10 inline-block">
 					Servizi
 					<span
@@ -94,13 +126,10 @@
 					></span>
 				</span>
 			</h1>
-			<div
-				class="mx-auto mb-16 h-1 w-24 rounded-full "
-			></div>
+			<div class="mx-auto mb-16 h-1 w-24 rounded-full"></div>
 		</div>
 	{/if}
 
-	<!-- Griglia dei servizi -->
 	<div class="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
 		{#each services as service, i}
 			<a
@@ -121,7 +150,7 @@
 							class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 hover:opacity-100"
 						>
 							<div
-								class="flex h-16 w-16 items-center justify-center rounded-full bg-white/70 backdrop-green-md"
+								class="backdrop-green-md flex h-16 w-16 items-center justify-center rounded-full bg-white/70"
 							>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"

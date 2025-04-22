@@ -32,6 +32,28 @@
 	}
 </script>
 
+<svelte:head>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Service",
+			"name": "Comunicazione & Branding",
+			"description": "Womblab sviluppa strategie di comunicazione, grafica editoriale, branding e social media management per il settore medico-scientifico.",
+			"provider": {
+				"@type": "Organization",
+				"name": "Womblab",
+				"url": "https://womblab-events.vercel.app"
+			},
+			"areaServed": {
+				"@type": "Country",
+				"name": "Italia"
+			},
+			"serviceType": "Comunicazione e strategie digitali"
+		}
+	</script>
+</svelte:head>
+
+
 <section class="mx-auto max-w-6xl bg-white px-6 py-16 text-green-600 md:py-24">
 	<a
 		href="/servizi"

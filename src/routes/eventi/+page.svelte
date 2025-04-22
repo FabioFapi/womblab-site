@@ -5,14 +5,14 @@
 	export let data;
 
 	let selectedType = 'tutti';
-	let key = 0; // Per forzare il riavvio delle animazioni
+	let key = 0;
 
 	const types = ['tutti', 'grandi-eventi', 'FAD', 'RES', 'campagna'];
 
 	function selectType(type) {
 		if (selectedType !== type) {
 			selectedType = type;
-			key++; // Incrementa la chiave per riavviare le animazioni
+			key++;
 		}
 	}
 
@@ -28,6 +28,26 @@
 		return dateString;
 	};
 </script>
+
+<svelte:head>
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "CollectionPage",
+			"name": "Eventi Womblab",
+			"url": "https://womblab-events.vercel.app/eventi",
+			"description": "Esplora tutti gli eventi organizzati da Womblab, tra cui eventi ECM, corsi FAD, eventi RES e campagne informative nel settore medico.",
+			"mainEntity": {
+				"@type": "ItemList",
+				"name": "Archivio Eventi",
+				"itemListOrder": "http://schema.org/ItemListOrderAscending",
+				"numberOfItems": 0,
+				"itemListElement": []
+			}
+		}
+	</script>
+</svelte:head>
+
 
 <section
 	class="relative overflow-hidden bg-gradient-to-br from-green-50 via-white to-blue-50 px-6 py-16"
@@ -219,7 +239,6 @@
 		{/if}
 	</div>
 
-	<!-- Decorazione animata di sfondo -->
 	<div
 		class="animate-blob absolute -top-24 -left-16 -z-10 h-96 w-96 rounded-full bg-green-200 opacity-20 blur-3xl filter"
 	></div>

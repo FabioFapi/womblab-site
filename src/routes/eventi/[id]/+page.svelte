@@ -32,11 +32,9 @@
 		activeSectionBig = section;
 	}
 
-	// Funzione per estrarre giorno, mese e anno dalla data dell'evento
 	function getFormattedDate(dateString) {
 		if (!dateString) return '';
 
-		// Riconosce intervalli tipo: "Dal 15-05-2025 al 17-05-2025"
 		const match = dateString.match(/(\d{2})-(\d{2})-(\d{4})/g);
 		if (match && match.length >= 1) {
 			const formattedDates = match.map((d) => {
@@ -53,7 +51,6 @@
 				: formattedDates[0];
 		}
 
-		// Caso singola data standard
 		const parsed = new Date(dateString);
 		if (!isNaN(parsed)) {
 			return parsed.toLocaleDateString('it-IT', {
@@ -63,7 +60,6 @@
 			});
 		}
 
-		// Fallback: restituisci la stringa com’è
 		return dateString;
 	}
 
@@ -75,9 +71,9 @@
 	function formatReadableDate(dateString) {
 		if (!dateString) return '';
 		try {
-			const onlyDate = dateString.split('T')[0]; // ← Elimina l’orario
+			const onlyDate = dateString.split('T')[0];
 			const [year, month, day] = onlyDate.split('-');
-			return `${day}/${month}/${year}`; // ← Formato italiano manuale
+			return `${day}/${month}/${year}`;
 		} catch (e) {
 			return dateString;
 		}
@@ -89,7 +85,6 @@
 <section class="relative mx-auto max-w-5xl px-6 py-8">
 	{#if event.type === 'grandi-eventi'}
 		{#if mounted}
-			<!-- Breadcrumb -->
 			<div in:fly={{ y: -10, duration: 300 }}>
 				<button
 					on:click={() => window.history.back()}
@@ -109,7 +104,6 @@
 				</button>
 			</div>
 
-			<!-- Evento Header -->
 			<div
 				in:fly={{ y: 10, duration: 400 }}
 				class="mb-8 flex flex-col md:flex-row md:items-start md:gap-6"
@@ -153,9 +147,7 @@
 			</div>
 
 			<div class="grid gap-8 md:grid-cols-3">
-				<!-- Colonna principale con immagine e contenuto -->
 				<div class="md:col-span-2">
-					<!-- Immagine con effetto parallasse -->
 					<div
 						in:fly={{ y: 20, duration: 500 }}
 						class="bg-white-100 relative mb-8 aspect-video overflow-hidden rounded-md"
@@ -178,7 +170,6 @@
 						/>
 					</div>
 
-					<!-- Tabs di navigazione contenuto -->
 					<div class="mb-6 border-b">
 						<div class="flex space-x-6 text-sm">
 							<button
@@ -200,7 +191,6 @@
 						</div>
 					</div>
 
-					<!-- Contenuto in base alla tab attiva -->
 					{#if activeSectionBig === 'descrizione'}
 						<div in:fade={{ duration: 300 }} class="prose prose-slate max-w-none">
 							<h2 class="mb-4 text-xl font-semibold text-gray-800">DESCRIZIONE</h2>
@@ -218,7 +208,6 @@
 					{/if}
 				</div>
 
-				<!-- Sidebar con informazioni -->
 				<div class="md:col-span-1">
 					<div
 						in:fly={{ x: 20, duration: 500 }}
@@ -272,7 +261,6 @@
 			</div>
 		{/if}
 	{:else if mounted}
-		<!-- Breadcrumb -->
 		<div in:fly={{ y: -10, duration: 300 }}>
 			<button
 				on:click={() => window.history.back()}
@@ -292,7 +280,6 @@
 			</button>
 		</div>
 
-		<!-- Evento Header -->
 		<div
 			in:fly={{ y: 10, duration: 400 }}
 			class="mb-8 flex flex-col md:flex-row md:items-start md:gap-6"
@@ -336,9 +323,7 @@
 		</div>
 
 		<div class="grid gap-8 md:grid-cols-3">
-			<!-- Colonna principale con immagine e contenuto -->
 			<div class="md:col-span-2">
-				<!-- Immagine con effetto parallasse -->
 				<div
 					in:fly={{ y: 20, duration: 500 }}
 					class="relative mb-8 aspect-video overflow-hidden rounded-md bg-green-100"
@@ -361,7 +346,6 @@
 					/>
 				</div>
 
-				<!-- Tabs di navigazione contenuto -->
 				<div class="mb-6 border-b">
 					<div class="flex space-x-6 text-sm">
 						<button
@@ -391,7 +375,6 @@
 					</div>
 				</div>
 
-				<!-- Contenuto in base alla tab attiva -->
 				{#if activeSection === 'presentazione'}
 					<div in:fade={{ duration: 300 }} class="prose prose-slate max-w-none">
 						<h2 class="mb-4 text-xl font-semibold text-gray-800">PRESENTAZIONE</h2>
@@ -418,7 +401,6 @@
 				{/if}
 			</div>
 
-			<!-- Sidebar con informazioni -->
 			<div class="md:col-span-1">
 				<div
 					in:fly={{ x: 20, duration: 500 }}
@@ -491,7 +473,6 @@
 		animation: fadeIn 0.6s ease-in-out;
 	}
 
-	/* Stile migliorato per il box data */
 	.date-box {
 		width: 100px;
 		height: 100px;
