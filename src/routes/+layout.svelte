@@ -14,7 +14,7 @@
 	<link rel="canonical" href="https://www.womblab.com/" />
 	<link rel="apple-touch-icon" sizes="180x180" href="/WombLab_favicon-32-32.png">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-	<meta name="google-site-verification" content="abc123xyz..." />
+	<meta name="google-site-verification" content="Y8kijkjJGueD5bhHugcnbp4NxQexpjFyYUZu1zA92no" />
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-title" content="Womblab Events">
 	<meta name="robots" content="max-image-preview:large" />
