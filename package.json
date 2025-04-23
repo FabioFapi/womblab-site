@@ -38,6 +38,9 @@
 		"vite": "^6.2.5"
 	},
 	"dependencies": {
+		"@lucia-auth/oauth": "^3.5.3",
+		"@lucia-auth/sveltekit": "^0.6.11",
+		"lucia": "^3.2.2",
 		"page-flip": "^2.0.7",
 		"pdfjs-dist": "^5.1.91",
 		"turn.js": "^1.0.5"
